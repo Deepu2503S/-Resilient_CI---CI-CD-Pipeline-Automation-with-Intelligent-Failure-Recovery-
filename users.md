@@ -7,4 +7,3 @@ Following are the core uses of our application :
 - Trigger Pipeline
 - Build Application 
 - Run Automated Tests
-- Pipeline monitoring
