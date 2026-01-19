@@ -1,0 +1,8 @@
+CTORS:
+
+1.Developer  -> pushes code and monitor pipeline
+
+2.Devops Engineer -> manages the ci/cd pipelines
+
+3.ML Model -> which will detect the failure 
+
