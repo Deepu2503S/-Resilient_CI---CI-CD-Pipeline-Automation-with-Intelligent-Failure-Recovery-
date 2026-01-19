@@ -6,3 +6,7 @@ CTORS:
 
 3.ML Model -> which will detect the failure 
 
+4.Notification Service -> Notification service will use the this service to alert the developer about the failure 
+
+5.Version Control -> Version control will use this software to build and rollback whenever neccessary
+
