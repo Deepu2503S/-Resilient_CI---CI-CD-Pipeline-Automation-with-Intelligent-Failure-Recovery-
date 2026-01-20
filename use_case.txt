@@ -3,7 +3,10 @@ Core Use Cases:
 Our major objective would be pushing the code , obtaining logs and handling the rollbacks and inconsistencies at the utmost level.
 Following are the core uses of our application :
 
-- Push Code
-- Trigger Pipeline
+- Push Source Code 
+- Create Pull Request 
+- Merge Code
+- Trigger CI/CD Pipeline 
+- Schedule Execution 
+- Fetch Source Code
 - Build Application 
-- Run Automated Tests
