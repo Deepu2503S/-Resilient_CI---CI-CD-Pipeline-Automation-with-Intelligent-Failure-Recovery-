@@ -9,4 +9,9 @@ Following are the core uses of our application :
 - Trigger CI/CD Pipeline 
 - Schedule Execution 
 - Fetch Source Code
-- Build Application 
+- Build Application
+- Detect Build Failure
+- Detect Test Failure
+- Detect Deployment Failure
+- Analye Error Logs
+- Identify Failure Type
