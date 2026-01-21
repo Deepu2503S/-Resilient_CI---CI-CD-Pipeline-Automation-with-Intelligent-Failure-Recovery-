@@ -10,3 +10,7 @@ ACTORS:
 
 5.Version Control -> Version control will use this software to build and rollback whenever neccessary
 
+6.Monitoring System -> Monitoring System will interact with our software in order to monitor the failure
+
+7.Logging System -> Logging System will logs all the failures of the software being processed via CI/CD
+
