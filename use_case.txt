@@ -1,0 +1,17 @@
+Core Use Cases:
+
+Our major objective would be pushing the code , obtaining logs and handling the rollbacks and inconsistencies at the utmost level.
+Following are the core uses of our application :
+
+- Push Source Code 
+- Create Pull Request 
+- Merge Code
+- Trigger CI/CD Pipeline 
+- Schedule Execution 
+- Fetch Source Code
+- Build Application
+- Detect Build Failure
+- Detect Test Failure
+- Detect Deployment Failure
+- Analyze Error logs
+- Identify failure type
