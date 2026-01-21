@@ -2,9 +2,9 @@ ACTORS:
 
 1.Developer  -> pushes code and monitor pipeline
 
-2.Devops Engineer -> manages the ci/cd pipelines
+2.ML Model -> which will detect the failure
 
-3.ML Model -> which will detect the failure 
+3.Devops Engineer -> manages the ci/cd pipelines
 
 4.Notification Service -> Notification service will use the this service to alert the developer about the failure 
 
