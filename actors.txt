@@ -1,4 +1,4 @@
-CTORS:
+ACTORS:
 
 1.Developer  -> pushes code and monitor pipeline
 
