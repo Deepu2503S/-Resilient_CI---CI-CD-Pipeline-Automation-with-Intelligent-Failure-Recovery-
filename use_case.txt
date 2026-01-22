@@ -14,4 +14,5 @@ Following are the core uses of our application :
 - Detect Deployment Failure
 - Analyze Error logs
 - Identify failure type
-
+- Classify Failure (rule based)
+- Classify Failure (ML based)
