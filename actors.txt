@@ -14,3 +14,7 @@ ACTORS:
 
 7.Logging System -> Logging System will logs all the failures of the software being processed via CI/CD
 
+8.Cloud Infrastructure Provider -> Provides virtual machines or containers to deploy the application
+
+9.Container Platform -> Container Platform to deploy app
+

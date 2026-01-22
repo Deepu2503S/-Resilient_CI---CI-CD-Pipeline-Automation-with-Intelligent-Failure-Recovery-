@@ -10,3 +10,9 @@ Following are the core uses of our application :
 - Schedule Execution 
 - Fetch Source Code
 - Build Application
+- Detect Build Failure
+- Detect Test Failure
+- Detect Deployment Failure
+- Analyze Error logs
+- Identify failure type
+
