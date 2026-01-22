@@ -16,3 +16,5 @@ Following are the core uses of our application :
 - Identify failure type
 - Classify Failure (rule based)
 - Classify Failure (ML based)
+- Retry Failed Stage
+- Restart Pipeline
