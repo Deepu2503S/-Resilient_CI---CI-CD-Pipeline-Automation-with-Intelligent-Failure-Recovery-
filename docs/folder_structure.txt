@@ -1,0 +1,6 @@
+This document explains the folder structure of the Resilient_CI project.
+
+docs/   : Contains requirements, actor list, and use case descriptions
+src/    : Contains sample application code for CI/CD demonstration
+uml/    : Contains UML use case diagram for Assignment 3
+README.md : Project overview and assignment documentation
