@@ -1,0 +1,14 @@
+# Application Components
+1. Developer
+   - Pushes code
+   - Creates pull requests
+   - Views pipeline status
+
+2. Version Control System
+   - Stores source code
+   - Triggers pipeline on code push
+
+3. CI/CD Execution Module
+   - Builds application
+   - Runs tests
+   - Deploys application
