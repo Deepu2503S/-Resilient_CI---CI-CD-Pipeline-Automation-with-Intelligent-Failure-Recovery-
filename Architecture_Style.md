@@ -25,5 +25,10 @@ Resilient_CI follows a **Layered Architecture** where the system is divided into
    - Build & Execution Logs
    - Failure Knowledge Base
 
+### Key Characteristics
+- Clear separation of concerns
+- High cohesion within layers
+- Low coupling between layers
+- Structured data flow
 
 
