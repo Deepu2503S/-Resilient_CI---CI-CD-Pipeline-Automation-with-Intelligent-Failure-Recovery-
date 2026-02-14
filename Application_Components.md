@@ -12,3 +12,15 @@
    - Builds application
    - Runs tests
    - Deploys application
+
+4. Failure Detection Module
+   - Detects build failures
+   - Detects deployment failures
+
+5. Log Analysis Module
+   - Analyzes execution logs
+   - Identifies error patterns
+
+6. Failure Classification Module
+   - Rule-based classification
+   - ML-based fallback classification
