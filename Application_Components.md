@@ -24,3 +24,18 @@
 6. Failure Classification Module
    - Rule-based classification
    - ML-based fallback classification
+7. Recovery Module
+   - Restarts pipeline
+   - Validates recovery actions
+
+8. Notification Module
+   - Sends failure alerts
+   - Sends recovery updates
+
+9. Monitoring System
+   - Provides runtime status information
+
+** Data Stores
+- Source Code Repository
+- Build & Execution Logs
+- Failure Knowledge Base
