@@ -3,6 +3,8 @@ import FailureClassifier from "../modules/failureclassifier";
 import RecoverManager from "../modules/recoveryManager";
 import NotificationService from "../modules/notificationService";
 import Logger from "../modules/logger";
+import dotenv from "dotenv";
+dotenv.config();
 
 
 const pipeline = new CICDExecution("app.js")

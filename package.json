@@ -1,0 +1,32 @@
+{
+  "name": "resilient-ci",
+  "version": "1.0.0",
+  "description": "Resilient_CI is a CI/CD pipeline automation system that detects failures, classifies errors, and performs intelligent recovery to create a self-healing pipeline.",
+  "main": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "echo \"No tests specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Deepu2503S/-Resilient_CI---CI-CD-Pipeline-Automation-with-Intelligent-Failure-Recovery-.git"
+  },
+  "keywords": [
+    "ci-cd",
+    "devops",
+    "pipeline",
+    "automation",
+    "failure-recovery"
+  ],
+  "author": "Anupam Tripathi, Deepanshu Singh, Harshit Jain",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Deepu2503S/-Resilient_CI---CI-CD-Pipeline-Automation-with-Intelligent-Failure-Recovery-/issues"
+  },
+  "homepage": "https://github.com/Deepu2503S/-Resilient_CI---CI-CD-Pipeline-Automation-with-Intelligent-Failure-Recovery-#readme",
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "nodemailer": "^8.0.1"
+  }
+}
