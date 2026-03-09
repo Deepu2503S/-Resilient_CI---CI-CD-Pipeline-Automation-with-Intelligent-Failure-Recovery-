@@ -1,3 +1,4 @@
+import { execSync } from "child_process"
 export default class RecoverManager{
     recover(failureType){
         console.log("Initiating recovery module...");
@@ -7,7 +8,14 @@ export default class RecoverManager{
                 return "Manual Fix Require!";
             
             case "DEPENDENCY_ERROR":
-                return "Reinstalling the dependencies and retrying build";
+                try{
+                    execSync("npm install",{ stdio : "inherit"});
+                    return "Dependencies reinstalled successfully";
+
+                }
+                catch(error){
+                    return "Failed to reinstall dependencies";
+                }
             case "TIMEOUT_ERROR":
                 return "Restarting pipeline due to Timeout";
 
