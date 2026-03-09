@@ -3,6 +3,7 @@ import FailureClassifier from "../modules/failureclassifier";
 import RecoverManager from "../modules/recoveryManager";
 import NotificationService from "../modules/notificationService";
 import Logger from "../modules/logger";
+import MonitoringService from "../modules/monitoringService";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -12,10 +13,13 @@ const classsifier = new FailureClassifier()
 const recovery = new RecoverManager()
 const logger = new Logger()
 const notification = new NotificationService()
+const monitor = new MonitoringService()
+
 
 
 async function startPipeline(){
     logger.log("Pipeline started..")
+    monitor.trackStatus("RUNNING")
 
     const result = await pipeline.runPipeline()
 
@@ -25,13 +29,13 @@ async function startPipeline(){
         const recoveryAction = recovery.recover(failureType);
         logger.log(`Recovery action : ${recoveryAction}`)
 
-        notification.sendNotification(`Pipeline failed due to ${failureType}`)
+       await notification.sendNotification(`Pipeline failed due to ${failureType}`)
         logger.log(`Notification sent for failure detection of ${failureType}`)
 
     }
     else{
         logger.log("Pipeline Successfull")
-        notification.sendNotification("Pipeline executed successfully")
+       await notification.sendNotification("Pipeline executed successfully")
         logger.log("Notification of pipeline success sent!")
     }
 
