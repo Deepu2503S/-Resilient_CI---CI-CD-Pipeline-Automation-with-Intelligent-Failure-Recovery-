@@ -1,4 +1,4 @@
-class FailureClassifier {
+export default class FailureClassifier {
   classify(errorMessage) {
     if (!errorMessage) {
       return "NO_FAILURE";
@@ -33,4 +33,4 @@ class FailureClassifier {
   }
 }
 
-module.exports = FailureClassifier;
+
