@@ -1,5 +1,4 @@
 # User Access and System Interaction
-## Assignment 5 – Resilient_CI
 
 ---
 
