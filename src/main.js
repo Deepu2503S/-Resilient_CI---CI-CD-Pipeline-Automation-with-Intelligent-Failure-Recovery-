@@ -1,9 +1,9 @@
-import CICDExecution from "../modules/cicdexecution";
-import FailureClassifier from "../modules/failureclassifier";
-import RecoverManager from "../modules/recoveryManager";
-import NotificationService from "../modules/notificationService";
-import Logger from "../modules/logger";
-import MonitoringService from "../modules/monitoringService";
+import CICDExecution from "../modules/cicdexecution.js";
+import FailureClassifier from "../modules/failureclassifier.js";
+import RecoverManager from "../modules/recoveryManager.js";
+import NotificationService from "../modules/notificationService.js";
+import Logger from "../modules/logger.js";
+import MonitoringService from "../modules/monitoringService.js";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -17,7 +17,7 @@ const monitor = new MonitoringService()
 
 
 
-async function startPipeline(){
+export default async function startPipeline(){
     logger.log("Pipeline started..")
     monitor.trackStatus("RUNNING")
 
@@ -25,6 +25,7 @@ async function startPipeline(){
 
     if(result.status==="FAILURE"){
         const failureType = classsifier.classify(result.error)
+        monitor.trackStatus("FAILED")
         logger.log(`Failure detected ${failureType}`)
         const recoveryAction = recovery.recover(failureType);
         logger.log(`Recovery action : ${recoveryAction}`)
@@ -34,12 +35,11 @@ async function startPipeline(){
 
     }
     else{
+        monitor.trackStatus("SUCCESS")
         logger.log("Pipeline Successfull")
-       await notification.sendNotification("Pipeline executed successfully")
+       await notification.sendNotification("Pipeline executed successfully");
         logger.log("Notification of pipeline success sent!")
     }
 
     
 }
-
-startPipeline()
