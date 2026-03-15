@@ -22,6 +22,3 @@ Example commands:
 - run-pipeline → Starts the CI/CD pipeline execution.
 - status → Displays the current status of the pipeline.
 - logs → Shows execution logs generated during the pipeline run.
-
-4. Interaction Flow Diagram
-  User (Developer) ->Command Line Interface (CLI) ->Pipeline Controller (main.js) -> CI/CD Execution Module -> Failure Classifier -> Recovery Manager->  Logger and Notification Service
