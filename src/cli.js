@@ -14,6 +14,10 @@ async function runCLI(){
                 const status = JSON.parse(
                     fs.readFileSync("pipeline_status.json")
                 );
+
+                console.log("Pipeline Staus : \n")
+                console.log(status)
+                
             }
             else{
                 console.log("No Pipeline status available");
