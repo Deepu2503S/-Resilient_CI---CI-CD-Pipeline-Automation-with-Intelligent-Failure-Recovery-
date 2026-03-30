@@ -36,7 +36,6 @@ Before reading files such as logs or status, the system checks if the file exist
 
 if (fs.existsSync("execution.log")) {
 }
-
 Purpose:
 - Prevents file read errors
 - Ensures safe file handling
