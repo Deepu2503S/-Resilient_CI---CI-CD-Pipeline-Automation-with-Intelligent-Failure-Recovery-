@@ -146,24 +146,7 @@ PASS
 
 ---
 
- Test Case 9: Multiple Pipeline Runs
-
-Input:
-node cli.js run (multiple times)
-
-Expected Output:
-- Each run executes independently
-- Latest status is updated correctly
-
-Actual Output:
-- Multiple runs handled correctly
-
-Result:
-PASS
-
----
-
- Test Case 10: Notification Trigger
+ Test Case 9: Notification Trigger
 
 Input:
 node cli.js run
