@@ -8,11 +8,10 @@ import dotenv from "dotenv";
 import executePipeline from "./bll/pipelineManager.js";
 
 dotenv.config();
-import executePipeline from "./bll/pipelineManager.js";
 
 
 const dep = {
-    pipeline : new CICDExecution(app.py),
+    pipeline : new CICDExecution("src/app.py"),
     classifier : new FailureClassifier(),
     recovery : new RecoverManager(),
     notification : new NotificationService(),
@@ -23,7 +22,7 @@ const dep = {
 export default async function startPipeline(){
     try {
         
-        const result = executePipeline(dep);
+        const result = await executePipeline(dep);
         return result;
     } catch (error) {
         console.log("Pipeline Crash",error.message);
