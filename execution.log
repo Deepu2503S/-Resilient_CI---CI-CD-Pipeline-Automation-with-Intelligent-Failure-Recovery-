@@ -1,3 +1,25 @@
 [2026-03-16T03:49:07.814Z] : Pipeline started..
 [2026-03-16T03:49:07.891Z] : Failure detected ML_CLASSIFIED_FAILURE
 [2026-03-16T03:49:07.891Z] : Recovery action : Unknown Failure.Escalated to DevOps
+[2026-04-05T13:39:31.604Z] : Pipeline Started
+[2026-04-05T13:39:32.205Z] : Failure Detected : ML_CLASSIFIED_FAILURE
+[2026-04-05T13:39:32.207Z] : Recovery action : Unknown Failure.Escalated to DevOps
+[2026-04-05T13:41:39.259Z] : Pipeline Started
+[2026-04-05T13:41:39.702Z] : Failure Detected : ML_CLASSIFIED_FAILURE
+[2026-04-05T13:41:39.705Z] : Recovery action : Unknown Failure.Escalated to DevOps
+[2026-04-05T13:44:45.001Z] : Pipeline Started
+[2026-04-05T13:44:45.498Z] : Failure Detected : ML_CLASSIFIED_FAILURE
+[2026-04-05T13:44:45.500Z] : Recovery action : Unknown Failure.Escalated to DevOps
+[2026-04-05T13:50:43.995Z] : Pipeline Started
+[2026-04-05T13:50:44.852Z] : Pipeline Successfull!
+[2026-04-05T13:54:15.162Z] : Pipeline Started
+[2026-04-05T13:54:15.599Z] : Pipeline Successfull!
+[2026-04-05T13:55:35.826Z] : Pipeline Started
+[2026-04-05T13:55:36.315Z] : Failure Detected : ML_CLASSIFIED_FAILURE
+[2026-04-05T13:55:36.319Z] : Recovery action : Unknown Failure.Escalated to DevOps
+[2026-04-05T13:57:00.496Z] : Pipeline Started
+[2026-04-05T13:57:00.966Z] : Failure Detected : ML_CLASSIFIED_FAILURE
+[2026-04-05T13:57:00.968Z] : Recovery action : Unknown Failure.Escalated to DevOps
+[2026-04-05T13:57:51.893Z] : Pipeline Started
+[2026-04-05T13:57:52.395Z] : Failure Detected : SYNTAX_ERROR
+[2026-04-05T13:57:52.397Z] : Recovery action : Manual Recovery required in syntax
