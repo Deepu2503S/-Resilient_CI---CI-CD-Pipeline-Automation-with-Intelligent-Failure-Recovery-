@@ -3,7 +3,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const ML_SCRIPT = path.join(__dirname, "../ml/mlClassifier.py");
+const ML_SCRIPT = path.join(__dirname, "../src/ml/mlClassifier.py");
 
 export default class FailureClassifier {
   classify(errorMessage) {
