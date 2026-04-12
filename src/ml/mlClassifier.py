@@ -8,9 +8,6 @@ import os
 
 MODEL_PATH = os.path.join(os.path.dirname(__file__), "model.pkl")
 
-# =========================
-# DATASET
-# =========================
 texts = [
     # LOGIC ERRORS
     "typeerror cannot read property",
@@ -21,6 +18,11 @@ texts = [
     "object is not iterable",
     "cannot set property of undefined",
     "division by zero error",
+    "ufunc add did not contain a loop",
+    "numpy ufunc type mismatch",
+    "numpy core exceptions ufuncnolooperror",
+    "dtype float64 string mismatch",
+    "numpy type error incompatible types",
     # SYNTAX ERRORS
     "syntaxerror unexpected token",
     "invalid syntax python",
@@ -65,16 +67,23 @@ texts = [
 ]
 
 labels = [
+    # LOGIC
     "LOGIC_ERROR","LOGIC_ERROR","LOGIC_ERROR","LOGIC_ERROR",
     "LOGIC_ERROR","LOGIC_ERROR","LOGIC_ERROR","LOGIC_ERROR",
+    "LOGIC_ERROR","LOGIC_ERROR","LOGIC_ERROR","LOGIC_ERROR","LOGIC_ERROR",
+    # SYNTAX
     "SYNTAX_ERROR","SYNTAX_ERROR","SYNTAX_ERROR","SYNTAX_ERROR",
     "SYNTAX_ERROR","SYNTAX_ERROR","SYNTAX_ERROR","SYNTAX_ERROR",
+    # DEPENDENCY
     "DEPENDENCY_ERROR","DEPENDENCY_ERROR","DEPENDENCY_ERROR","DEPENDENCY_ERROR",
     "DEPENDENCY_ERROR","DEPENDENCY_ERROR","DEPENDENCY_ERROR","DEPENDENCY_ERROR",
+    # ENVIRONMENT
     "ENVIRONMENT_ERROR","ENVIRONMENT_ERROR","ENVIRONMENT_ERROR","ENVIRONMENT_ERROR",
     "ENVIRONMENT_ERROR","ENVIRONMENT_ERROR","ENVIRONMENT_ERROR","ENVIRONMENT_ERROR",
+    # TIMEOUT
     "TIMEOUT_ERROR","TIMEOUT_ERROR","TIMEOUT_ERROR","TIMEOUT_ERROR",
     "TIMEOUT_ERROR","TIMEOUT_ERROR","TIMEOUT_ERROR","TIMEOUT_ERROR",
+    # UNKNOWN
     "ML_CLASSIFIED_FAILURE","ML_CLASSIFIED_FAILURE",
     "ML_CLASSIFIED_FAILURE","ML_CLASSIFIED_FAILURE"
 ]
@@ -114,7 +123,6 @@ def train():
     print(f"[ML] Model saved to {MODEL_PATH}")
 
 def predict(error_text):
-    # Auto train if model doesn't exist yet
     if not os.path.exists(MODEL_PATH):
         train()
 
@@ -123,7 +131,7 @@ def predict(error_text):
 
     X          = vectorizer.transform([error_text.lower()])
     prediction = model.predict(X)[0]
-    print(prediction)  # this is what Node.js reads from stdout
+    print(prediction)
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
@@ -138,5 +146,4 @@ if __name__ == "__main__":
         error_text = " ".join(sys.argv[2:]) if len(sys.argv) > 2 else ""
         predict(error_text)
     else:
-        # Called directly with just the error message (legacy support)
         predict(" ".join(sys.argv[1:]))
