@@ -26,7 +26,10 @@ export default async function executePipeline({
     await saveLog(`Recovery Action : ${recoveryAction}`);        // FIX
 
     await notification.sendNotification(
-      `Pipeline failed due to : ${failureType}`
+      `CI/CD Pipeline Failed\n
+Error Detected : ${result.error}
+Failure Type   : ${failureType}
+Recovery Action: ${recoveryAction}`
     );
     await savePipelineRun("FAILED", failureType, recoveryAction); // FIX
 
