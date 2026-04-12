@@ -1,7 +1,4 @@
-// BUG: appPath is interpolated directly into a shell command string
-// If appPath = "foo.py; rm -rf /", that command runs.
-// FIX: use execFile with an args array — never interpolate user/config values into shell strings
-import { execFile } from "child_process";  // FIX: execFile instead of exec
+import { execFile } from "child_process";
 
 export default class CICDExecution {
   constructor(appPath, runtime = "python") {
@@ -12,7 +9,6 @@ export default class CICDExecution {
   async runPipeline() {
     console.log("Running CI/CD pipeline...");
 
-    // FIX: pass binary and args separately — no shell interpolation
     const [bin, ...args] =
       this.runtime === "python"
         ? ["python", this.appPath]
@@ -21,11 +17,25 @@ export default class CICDExecution {
     return new Promise((resolve) => {
       execFile(bin, args, (error, stdout, stderr) => {
         if (error) {
-          resolve({ status: "FAILURE", error: stderr || error.message });
+          resolve({
+            status: "FAILURE",
+            error: stderr || error.message,
+            // Parse individual errors from stderr
+            errors: this.parseErrors(stderr || error.message)
+          });
         } else {
           resolve({ status: "SUCCESS", output: stdout });
         }
       });
     });
+  }
+
+  // Split multiple errors into an array
+  parseErrors(stderr) {
+    if (!stderr) return [];
+    return stderr
+      .split("\n")
+      .map(l => l.trim())
+      .filter(l => l.startsWith("[") && l.includes("]")); // matches [test_name] error
   }
 }

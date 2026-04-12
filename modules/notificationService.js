@@ -9,8 +9,8 @@ export default class NotificationService {
       port : 465,
       secure : true,
       auth: {
-        user: "****",
-        pass: "*****",
+        user: "tripathi.anupam1201@gmail.com",
+        pass: "******",
       },
       tls: {
         rejectUnauthorized : false
@@ -19,10 +19,10 @@ export default class NotificationService {
   }
 
   async sendNotification(message, userEmail) {
-    const receiver = "anupamlfh@gmail.com";
+    const receiver = "harshitjain5041@gmail.com";
     try {
       await this.transporter.sendMail({
-        from: "anupam.tripathi23b@iiitg.ac.in",
+        from: "tripathi.anupam1201@gmail.com",
         to: receiver,
         subject: "CI/CD Pipeline Notification",
         text: message,

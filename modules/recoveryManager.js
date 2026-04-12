@@ -1,5 +1,3 @@
-// BUG: "ENVIORNMENT_ERROR" never matches "ENVIRONMENT_ERROR" from classifier
-// FIX: corrected spelling on both the case key and the return string
 import { execSync } from "child_process";
 
 export default class RecoverManager {
@@ -8,7 +6,7 @@ export default class RecoverManager {
 
     switch (failureType) {
       case "LOGIC_ERROR":
-        return "Manual Fix Required!";
+        return "Manual Fix Required — check the code logic and data types";
 
       case "DEPENDENCY_ERROR":
         try {
@@ -21,14 +19,17 @@ export default class RecoverManager {
       case "TIMEOUT_ERROR":
         return "Restarting pipeline due to Timeout";
 
-      case "ENVIRONMENT_ERROR":           
-        return "Checking Environment configuration"; 
+      case "ENVIRONMENT_ERROR":
+        return "Checking Environment configuration";
 
       case "SYNTAX_ERROR":
-        return "Manual Recovery required for syntax error";
+        return "Manual Recovery required — fix the syntax error in code";
+
+      case "ML_CLASSIFIED_FAILURE":
+        return "Unknown failure escalated to DevOps team";
 
       default:
-        return "Unknown Failure. Escalated to DevOps";
+        return "Unknown Failure — escalated to DevOps";
     }
   }
 }
