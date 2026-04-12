@@ -1,57 +1,55 @@
+// BUG: const/let inside switch cases without braces causes a ReferenceError
+// in some JS engines because the variable is technically in-scope for the
+// whole switch but not initialised. FIX: wrap each case in braces { }
 import fs from "fs";
 import startPipeline from "./main.js";
 import { getLastStatus, getLogs } from "../db/dbService.js";
 
-const command = process.argv[2]
+const command = process.argv[2];
 
-async function runCLI(){
-    switch(command){
-        case "run":
-            console.log("Starting the pipeline...\n");
-            await startPipeline();
-        break;
-        case "status":
-            const dbstatus = await getLastStatus();
-            console.log("Pipeline Status:", dbstatus);
-            if(fs.existsSync("pipeline_status.json")){
-                const status = JSON.parse(
-                    fs.readFileSync("pipeline_status.json")
-                );
+async function runCLI() {
+  switch (command) {
+    case "run": {
+      console.log("Starting the pipeline...\n");
+      await startPipeline();
+      break;
+    }
 
-                console.log("Pipeline Status : \n")
-                console.log(status)
-                
-            }
-            else{
-                console.log("No Pipeline status available");
-            }
-            break;
+    case "status": {                                    // FIX: braces around case body
+      const dbstatus = await getLastStatus();
+      console.log("Pipeline Status (DB):", dbstatus);
 
-            case "logs":
-                const dblogs = await getLogs();
-                console.log(dblogs);
-                if(fs.existsSync("execution.log")){
-                    const logs = fs.readFileSync("execution.log","utf-8");
-                    console.log("\nExecution logs : \n");
-                    console.log(logs);
-                }
-                else{
-                    console.log("No Logs found!!")
-               }
-                break;
-               default:
-                console.log(`Resilient CI/CD CLI 
+      if (fs.existsSync("pipeline_status.json")) {
+        const status = JSON.parse(fs.readFileSync("pipeline_status.json"));
+        console.log("Pipeline Status (file):\n", status);
+      } else {
+        console.log("No pipeline status file available");
+      }
+      break;
+    }
 
-        Commands Available : 
-        node src/cli.js run  -> Run Pipeline
-        node src/cli.js status -> Show Pipeline Status
-        node src/cli.js logs -> Show Execution logs`
-                
-                );
+    case "logs": {                                      // FIX: braces around case body
+      const dblogs = await getLogs();
+      console.log("DB Logs:", dblogs);
 
-    
-            }
-    
+      if (fs.existsSync("execution.log")) {
+        const logs = fs.readFileSync("execution.log", "utf-8");
+        console.log("\nExecution logs:\n", logs);
+      } else {
+        console.log("No log file found.");
+      }
+      break;
+    }
+
+    default: {
+      console.log(`Resilient CI/CD CLI
+
+Commands:
+  node src/cli.js run    → Run pipeline
+  node src/cli.js status → Show pipeline status
+  node src/cli.js logs   → Show execution logs`);
+    }
+  }
 }
 
 runCLI();
