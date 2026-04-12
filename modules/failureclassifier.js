@@ -12,7 +12,7 @@ export default class FailureClassifier {
       return "SYNTAX_ERROR";
     }
 
-    if (errorMessage.includes("ENOENT") || errorMessage.includes("MODULE_NOT_FOUND")) {
+    if (errorMessage.includes("ENOENT") || errorMessage.includes("MODULE_NOT_FOUND")) {      
       return "DEPENDENCY_ERROR";
     }
 
