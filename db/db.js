@@ -5,7 +5,7 @@ dotenv.config()
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: process.env.DB_PASS,
+  password: "deepu",
   database: "resilient_ci"
 });
 

@@ -1,4 +1,4 @@
-import { savePipelineRun, saveLog } from "../../db/dbService";
+import { savePipelineRun, saveLog } from "../../db/dbService.js";
 export default async function executePipeline({
     pipeline,
     classifier,

@@ -1,6 +1,6 @@
 import fs from "fs";
 import startPipeline from "./main.js";
-import { getLastStatus, getLogs } from "./db/dbService.js";
+import { getLastStatus, getLogs } from "../db/dbService.js";
 
 const command = process.argv[2]
 

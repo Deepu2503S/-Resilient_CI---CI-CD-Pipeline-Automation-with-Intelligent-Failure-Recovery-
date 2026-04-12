@@ -12,13 +12,14 @@ export default class NotificationService{
         });
     }
 async sendNotification(message,userEmail){
-    const reciver = userEmail || process.env.EMAIL_TO;
-    await this.transporter.sendMail({
-        from : process.env.EMAIL_USER,
-        to : reciver,
-        subject : "CI/CD Pipeline Notification",
-        text : message
-    })
+    // const reciver = userEmail || process.env.EMAIL_TO;
+    // await this.transporter.sendMail({
+    //     from : process.env.EMAIL_USER,
+    //     to : reciver,
+    //     subject : "CI/CD Pipeline Notification",
+    //     text : message
+    // })
+    console.log("Notification send")
 
 }
 
