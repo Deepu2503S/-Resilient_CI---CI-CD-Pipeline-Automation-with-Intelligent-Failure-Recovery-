@@ -3,28 +3,40 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const ML_SCRIPT = path.join(__dirname, "../ml/mlClassifier.py");
+const ML_SCRIPT = path.join(__dirname, "../src/ml/mlClassifier.py");
 
 export default class FailureClassifier {
+  
+  // Extract just the important last line from Python tracebacks
+  extractErrorLine(errorMessage) {
+    if (!errorMessage) return "";
+    
+    const lines = errorMessage.trim().split("\n").map(l => l.trim()).filter(Boolean);
+    // Last line of a Python traceback is always the actual error e.g. "TypeError: ..."
+    return lines[lines.length - 1] || errorMessage;
+  }
+
   classify(errorMessage) {
     if (!errorMessage) return "NO_FAILURE";
 
-    const msg = errorMessage.toLowerCase();
+    const lastLine = this.extractErrorLine(errorMessage);
+    const msg = lastLine.toLowerCase();
 
-   
-    if (msg.includes("typeerror") || msg.includes("referenceerror"))
+    console.log(`[Classifier] Classifying: "${lastLine}"`);
+
+    if (msg.includes("typeerror") || msg.includes("referenceerror") || msg.includes("attributeerror") || msg.includes("valueerror"))
       return "LOGIC_ERROR";
     if (msg.includes("syntaxerror") || msg.includes("indentationerror"))
       return "SYNTAX_ERROR";
-    if (msg.includes("enoent") || msg.includes("module not found") || msg.includes("cannot find"))
+    if (msg.includes("modulenotfounderror") || msg.includes("importerror") || msg.includes("module not found") || msg.includes("enoent") || msg.includes("cannot find"))
       return "DEPENDENCY_ERROR";
-    if (msg.includes("permission denied") || msg.includes("access denied"))
+    if (msg.includes("permissionerror") || msg.includes("permission denied") || msg.includes("access denied"))
       return "ENVIRONMENT_ERROR";
-    if (msg.includes("timeout") || msg.includes("etimedout"))
+    if (msg.includes("timeouterror") || msg.includes("timeout") || msg.includes("etimedout"))
       return "TIMEOUT_ERROR";
 
-   
-    return this.mlClassify(errorMessage);
+    // Only send to ML if rule-based truly can't classify it
+    return this.mlClassify(lastLine);
   }
 
   mlClassify(errorMessage) {
