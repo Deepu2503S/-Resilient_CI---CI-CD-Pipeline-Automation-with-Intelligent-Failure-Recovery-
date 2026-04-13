@@ -10,7 +10,7 @@ export default class NotificationService {
       secure : true,
       auth: {
         user: "tripathi.anupam1201@gmail.com",
-        pass: "******",
+        pass: "*******",
       },
       tls: {
         rejectUnauthorized : false
@@ -19,7 +19,7 @@ export default class NotificationService {
   }
 
   async sendNotification(message, userEmail) {
-    const receiver = "harshitjain5041@gmail.com";
+    const receiver = "bsb.deepanshu@gmail.com";
     try {
       await this.transporter.sendMail({
         from: "tripathi.anupam1201@gmail.com",

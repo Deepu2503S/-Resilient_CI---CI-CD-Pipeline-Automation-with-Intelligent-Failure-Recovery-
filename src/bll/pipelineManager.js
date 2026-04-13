@@ -82,7 +82,7 @@ ${emailBody}`
 Status : All steps completed successfully
 Output : ${result.output}`
     );
-
+    console.log("Pipeline executed successfully with no Error!")
     await savePipelineRun("SUCCESS", null, null);
     return { status: "SUCCESS", output: result.output };
   }
